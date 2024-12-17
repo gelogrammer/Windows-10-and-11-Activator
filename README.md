@@ -6,7 +6,7 @@ Easy Installation: Just run the file.bat for a simple activation process.
 No Complex Setup: Minimal steps to get your system activated.
 Installation:
 Download the repository or clone it using Git.
-Locate the windows.bat file in the project.
+Locate the windows.bat file.
 Double-click the .bat file to run it and activate your Windows system.
 
 ![U233334ntitled](https://github.com/user-attachments/assets/ce853d71-7d34-409c-a809-1a64508c14f3)
